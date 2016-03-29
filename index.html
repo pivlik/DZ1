@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Lesson1</title>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+        <style>
+            rect {
+                fill: white;
+                stroke: black;
+                stroke-width: 2;
+                stroke-linejoin: round;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <svg>
+        </svg>
+
+        <script>
+            var Coord = [
+                {x: 10, y: 10},{x: 30, y: 10}, {x: 50, y: 10}, {x: 70, y: 10}, {x: 90, y: 10},
+                {x: 10, y: 30},{x: 30, y: 30} ,{x: 50, y: 30} ,{x: 70, y: 30} ,{x: 90, y: 30},
+                {x: 10, y: 50},{x: 30, y: 50} ,{x: 50, y: 50} ,{x: 70, y: 50} ,{x: 90, y: 50},
+                {x: 10, y: 70},{x: 30, y: 70} ,{x: 50, y: 70} ,{x: 70, y: 70} ,{x: 90, y: 70},
+                {x: 10, y: 90},{x: 30, y: 90} ,{x: 50, y: 90} ,{x: 70, y: 90} ,{x: 90, y: 90}
+            ];
+
+            var svg = d3.select('svg');
+            var rects = svg.selectAll('rect').data(Coord);
+            rects.enter().append('rect')
+                    .attr('width', 20)
+                    .attr('height', 20)
+                    .attr('x', function(d,i){return d.x})
+                    .attr('y', function(d,i){return d.y});
+
+        </script>
+    </body>
+</html>
